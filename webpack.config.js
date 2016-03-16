@@ -24,6 +24,15 @@ module.exports = {
   },
   postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ],
   plugins: [
+    new webpack.optimize.UglifyJsPlugin({
+      output: {
+        ascii_only: true
+      },
+      compress: {
+        warnings: false,
+        drop_console: true
+      }
+    }),
     new ExtractTextPlugin("style.css", {
       allChunks: true
     })
