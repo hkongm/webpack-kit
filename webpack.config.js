@@ -4,7 +4,10 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   context: __dirname + "/src",
-  entry: "./app.js",
+  entry: {
+    app: "./app",
+    vendor: ["react"],
+  },
   output: {
     path: __dirname + "/dist",
     filename: "bundle.js",
@@ -44,6 +47,11 @@ module.exports = {
     //     drop_console: true
     //   }
     // }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: "vendor",
+      filename: "vendor.js",
+      minChunks: Infinity,
+    }),
     new ExtractTextPlugin("style.css", {
       allChunks: true
     })
