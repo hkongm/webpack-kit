@@ -14,14 +14,17 @@ module.exports = {
     loaders: [
       {
         test:   /\.css$/,
-        loader: "style-loader!css-loader!postcss-loader"
+        loader: ExtractTextPlugin.extract("style", "css?sourceMap", "postcss")
       },
       {
         test: /\.scss$/,
-        loaders: ["style", "css", "postcss", "sass"]
+        loader: ExtractTextPlugin.extract(
+          "style",
+          "css!postcss!sass")
       }
     ]
   },
+  devtool: "source-map",
   postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ],
   plugins: [
     new ExtractTextPlugin("style.css", {
