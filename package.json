@@ -1,15 +1,15 @@
 {
-  "name": "project",
+  "name": "webpack-kit",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "webpack",
   "scripts": {
     "dev": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config webpack.dev.config.js --content-base public/ --hot --inline",
     "prd": "./node_modules/webpack/bin/webpack.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "hkongm",
+  "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.7.2",
     "babel-loader": "^6.2.4",
