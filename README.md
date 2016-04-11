@@ -1,4 +1,4 @@
-# project
+# webpack-kit
 
 ## 命令
 * `npm run dev`：打开热替换开发模式。
