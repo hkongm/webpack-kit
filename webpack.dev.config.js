@@ -1,29 +1,37 @@
-var webpack = require("webpack");
+var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  context: __dirname + "/src",
+  context: __dirname + '/src',
+  // entry: {
+  //   app: "./app",
+  //   vendor: ["react"],
+  // },
   entry: {
-    app: "./app",
-    vendor: ["react"],
+    app: './app',
+    redux: './redux'
   },
   output: {
-    path: __dirname + "/dist",
-    filename: "bundle.js",
-    publicPath: "/assets/",
+    path: __dirname + '/dist',
+    filename: '[name].js',
+    publicPath: '/assets/'
   },
   module: {
     loaders: [
       {
         test:   /\.css$/,
-        loader: ExtractTextPlugin.extract("style", "css?sourceMap", "postcss")
+        loader: ExtractTextPlugin.extract(
+          'style',
+          'css?sourceMap',
+          'postcss'
+        )
       },
       {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract(
-          "style",
-          "css!postcss!sass")
+          'style',
+          'css!postcss!sass')
       },
       {
         test: /\.jsx?$/,
@@ -32,18 +40,18 @@ module.exports = {
         query: {
           presets: ['react', 'es2015']
         }
-      },
+      }
     ]
   },
   // devtool: "source-map",
   postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ],
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
-      name: "vendor",
-      filename: "vendor.js",
-      minChunks: Infinity,
+      name: 'vendor',
+      filename: 'vendor.js',
+      minChunks: Infinity
     }),
-    new ExtractTextPlugin("style.css", {
+    new ExtractTextPlugin('style.css', {
       allChunks: true
     })
   ]
