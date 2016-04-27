@@ -10,7 +10,8 @@ module.exports = {
   // },
   entry: {
     app: './app',
-    redux: './redux'
+    todo: './redux_todo',
+    counter: './redux_counter'
   },
   output: {
     path: __dirname + '/dist',
@@ -34,7 +35,7 @@ module.exports = {
           'css!postcss!sass')
       },
       {
-        test: /\.jsx?$/,
+        test: /\.(js|jsx)?$/,
         exclude: /(node_modules|bower_components)/,
         loader: 'babel',
         query: {
@@ -44,7 +45,9 @@ module.exports = {
     ]
   },
   // devtool: "source-map",
-  postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ],
+  postcss: [autoprefixer({
+    browsers: ['last 2 versions']
+  })],
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
