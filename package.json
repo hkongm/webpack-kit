@@ -4,7 +4,7 @@
   "description": "",
   "main": "webpack",
   "scripts": {
-    "dev": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config webpack.dev.config.js --content-base public/ --hot --inline",
+    "dev": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config webpack.dev.config.js",
     "prd": "./node_modules/webpack/bin/webpack.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

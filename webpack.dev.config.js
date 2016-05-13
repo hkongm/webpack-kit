@@ -48,6 +48,11 @@ module.exports = {
   postcss: [autoprefixer({
     browsers: ['last 2 versions']
   })],
+  devServer: {
+    hot: true,
+    inline: true,
+    contentBase: 'public/'
+  },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
